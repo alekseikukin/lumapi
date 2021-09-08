@@ -6,7 +6,7 @@
   <h1 align="center">Lumerical API toolbox
 </h1>
     <p align="center">
-Toolbox for simple controle of Lumerical software.
+Toolbox for simple control of Lumerical software.
   </p>
 </p>
 
