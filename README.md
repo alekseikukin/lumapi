@@ -7,6 +7,8 @@
 </h1>
     <p align="center">
 Toolbox for simple control of Lumerical software.
+  
+  This toolbox isn't finished. I'll add new function with a time.
   </p>
 </p>
 
