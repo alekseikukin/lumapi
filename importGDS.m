@@ -27,7 +27,7 @@ while ~isempty(varargin)
         case 'zmax'
             zmax = varargin{2};
             
-        case 'z_span'
+        case {'z_span', 'z span'}
             z_span = varargin{2};
             
         case 'x'
@@ -40,7 +40,7 @@ while ~isempty(varargin)
             z = varargin{2};
             
         otherwise
-            errore('unknown comand')
+            error(['undefined paramiter' varargin{1}])
     end
     varargin(1:2) = [];
 end

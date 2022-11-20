@@ -1,9 +1,10 @@
 function SetParam(session, name, value)
 if ~isstring(value) && ~ischar(value)
-    value = string(value);
+    value = num2str(value);
 else
-    value = ['"' value '"'];
+    value = ['"' char(value) '"'];
 end
-session.SendComand(['set("' name '",' char(value) ');']);
+comand = char(['set("' char(name) '", ' char(value) ');']);
+session.SendComand(comand);
 end
 
