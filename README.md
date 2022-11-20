@@ -11,7 +11,10 @@ Toolbox for simple control of Lumerical software.
 </p>
 
 ## Usage
-See the [example](example.m) .
+1. Instal [Lumerical](https://www.lumerical.com/downloads/)
+2. instal this [toolbox]((https://github.com/alekseikukin/lumapi)
+3. Setup [MATLAB to Lumerical API integration](https://optics.ansys.com/hc/en-us/articles/360026142074)
+4. See the [example](example.m) .
 
 ## List of functions
 See the [list of functions](list_of_functions.md) .
