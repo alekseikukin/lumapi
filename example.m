@@ -16,7 +16,7 @@ sim1.AddPower('name', 'm1','monitor type', 5, ...
     'x', 4, 'y', 0, 'y span', 3);
 sim1.AddPower('name', 'm2', 'monitor type', 7, ...
     'x', 0, 'y', 0,'z', 0, 'y span', 3,'x span', 8);
-sim1.Save('Example')
+sim1.Save('Example.lms')
 sim1.Run();
 T = sim1.GetTransmitance('m1');
 E = sim1.GetEField('m2');
@@ -25,9 +25,14 @@ tiledlayout(2,1)
 % Top plot
 nexttile
 plot(T(:,2),T(:,1))
+xlabel('lambda, um');
+ylabel('T');
 title('Plot 1')
 % Bottom plot
 nexttile
 [X, Y] = meshgrid(E.X, E.Y);
 mesh(X', Y', real(E.E(:,:,1,2,2)))
+xlabel('X, um')
+ylabel('Y, um')
+zlabel('Re(Ey)')
 title('Plot 2')
