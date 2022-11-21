@@ -1,6 +1,5 @@
 classdef LumericalConnection
-    %LUMERICALCONNECTION Summary of this class goes here
-    %   Detailed explanation goes here
+    %LUMERICALCONNECTION 
 
     properties
         currentConnection
@@ -8,8 +7,8 @@ classdef LumericalConnection
 
     methods
         function obj = LumericalConnection(varargin)
-            %LUMERICALCONNECTION Construct an instance of this class
-            %   type can be: 'mode', 'fdtd'
+            %LUMERICALCONNECTION 
+            %   type can be: 'mode', 'fdtd' amd etc
             type = 'mode';
             current_version = 'v222';
             HDD = 'C:';
@@ -155,9 +154,11 @@ classdef LumericalConnection
             Transmittance = getTransmitance(obj, monitor);
         end
         function Power = GetPower(obj,monitor)
+            % get power field distribution
             Power = getPower(obj, monitor);
         end
         function E = GetEField(obj, monitor)
+            % get electrical field distribution
             E = getEField(obj, monitor);
         end
         function DeleteAll(obj)
