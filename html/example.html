@@ -1,0 +1,158 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>example</title><meta name="generator" content="MATLAB 9.13"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-11-21"><meta name="DC.source" content="example.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput">clear <span class="string">all</span>;
+c0 = physconst(<span class="string">'LightSpeed'</span>);
+lengthstr = 10; <span class="comment">%[um] length of waveguide</span>
+widthWG = 1; <span class="comment">%[um] width WG</span>
+hightWG = 1; <span class="comment">%[um] hight WG</span>
+sim1 = LumericalConnection(<span class="string">'version'</span>, <span class="string">'v222'</span>); <span class="comment">% initialization of simulation</span>
+sim1.AddRect( <span class="keyword">...</span><span class="comment"> % add rectangl (it will be WG)</span>
+    <span class="string">'x span'</span>, 10, <span class="string">'y span'</span>, 1, <span class="string">'z span'</span>, 1, <span class="keyword">...</span><span class="comment"> % set size of WG</span>
+    <span class="string">'x'</span>, 0, <span class="string">'y'</span>, 0, <span class="string">'z'</span>, 0, <span class="keyword">...</span><span class="comment"> % set position of WG</span>
+    <span class="string">'material'</span>, <span class="string">'Si (Silicon) - Palik'</span>); <span class="comment">% set material from standart base</span>
+sim1.AddVarFDTD(<span class="string">'x span'</span>, 10, <span class="string">'y span'</span>, 10, <span class="string">'z span'</span>, 10, <span class="keyword">...</span><span class="comment">  % add solver</span>
+    <span class="string">'x'</span>, 0, <span class="string">'y'</span>, 0, <span class="string">'z'</span>, 0);
+comand = {<span class="string">'select("varFDTD");'</span>, <span class="keyword">...</span><span class="comment">  % example how to send random scrypt (select solver and set time)</span>
+    [<span class="string">'set("simulation time", '</span> num2str(lengthstr*1e-6/c0 * 4 ) <span class="string">')'</span>]};<span class="comment">% example how to send random scrypt</span>
+sim1.SendComand(comand{:});<span class="comment">% example how to send random scrypt (send scrypt)</span>
+sim1.AddSource(<span class="string">'x'</span>, -4, <span class="string">'y'</span>, 0, <span class="keyword">...</span><span class="comment"> % add source</span>
+    <span class="string">'y span'</span>, 3, <span class="string">'wavelength start'</span>, 1.5e-6, <span class="string">'wavelength stop'</span>, 1.6e-6);
+sim1.AddPower(<span class="string">'name'</span>, <span class="string">'m1'</span>,<span class="string">'monitor type'</span>, 5, <span class="keyword">...</span><span class="comment"> % add power monitor with name m1</span>
+    <span class="string">'x'</span>, 4, <span class="string">'y'</span>, 0, <span class="string">'y span'</span>, 3);
+sim1.AddPower(<span class="string">'name'</span>, <span class="string">'m2'</span>, <span class="string">'monitor type'</span>, 7, <span class="keyword">...</span><span class="comment"> % add power monitor with name m2</span>
+    <span class="string">'x'</span>, 0, <span class="string">'y'</span>, 0,<span class="string">'z'</span>, 0, <span class="string">'y span'</span>, 3,<span class="string">'x span'</span>, 8);
+sim1.Save(<span class="string">'Example.lms'</span>) <span class="comment">% save file</span>
+sim1.Run(); <span class="comment">% run simulation</span>
+T = sim1.GetTransmitance(<span class="string">'m1'</span>); <span class="comment">% get transmittance from monitor m1</span>
+E = sim1.GetEField(<span class="string">'m2'</span>); <span class="comment">% get electrical field from monitor m2</span>
+sim1.AppClose(); <span class="comment">% close app</span>
+<span class="comment">%%%%%%%%%%%% plot data %%%%%%%%%%%%%%%%%%</span>
+tiledlayout(2,1)
+<span class="comment">% Transmittance</span>
+nexttile
+plot(T(:,2),T(:,1));
+xlabel(<span class="string">'lambda, um'</span>);
+ylabel(<span class="string">'T'</span>);
+title(<span class="string">'Plot 1'</span>)
+<span class="comment">% Electrical field</span>
+nexttile
+[X, Y] = meshgrid(E.X, E.Y);
+mesh(X', Y', real(E.E(:,:,1,2,2)));
+xlabel(<span class="string">'X, um'</span>);
+ylabel(<span class="string">'Y, um'</span>);
+zlabel(<span class="string">'Re(Ey)'</span>);
+title(<span class="string">'Plot 2'</span>);
+</pre><pre class="codeoutput">EFm2 = getresult("m2", "E");
+</pre><img vspace="5" hspace="5" src="example_01.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2022b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+clear all;
+c0 = physconst('LightSpeed');
+lengthstr = 10; %[um] length of waveguide
+widthWG = 1; %[um] width WG
+hightWG = 1; %[um] hight WG
+sim1 = LumericalConnection('version', 'v222'); % initialization of simulation
+sim1.AddRect( ... % add rectangl (it will be WG)
+    'x span', 10, 'y span', 1, 'z span', 1, ... % set size of WG
+    'x', 0, 'y', 0, 'z', 0, ... % set position of WG
+    'material', 'Si (Silicon) - Palik'); % set material from standart base
+sim1.AddVarFDTD('x span', 10, 'y span', 10, 'z span', 10, ...  % add solver
+    'x', 0, 'y', 0, 'z', 0); 
+comand = {'select("varFDTD");', ...  % example how to send random scrypt (select solver and set time)
+    ['set("simulation time", ' num2str(lengthstr*1e-6/c0 * 4 ) ')']};% example how to send random scrypt
+sim1.SendComand(comand{:});% example how to send random scrypt (send scrypt)
+sim1.AddSource('x', -4, 'y', 0, ... % add source
+    'y span', 3, 'wavelength start', 1.5e-6, 'wavelength stop', 1.6e-6);
+sim1.AddPower('name', 'm1','monitor type', 5, ... % add power monitor with name m1
+    'x', 4, 'y', 0, 'y span', 3);
+sim1.AddPower('name', 'm2', 'monitor type', 7, ... % add power monitor with name m2
+    'x', 0, 'y', 0,'z', 0, 'y span', 3,'x span', 8);
+sim1.Save('Example.lms') % save file
+sim1.Run(); % run simulation
+T = sim1.GetTransmitance('m1'); % get transmittance from monitor m1
+E = sim1.GetEField('m2'); % get electrical field from monitor m2
+sim1.AppClose(); % close app
+%%%%%%%%%%%% plot data %%%%%%%%%%%%%%%%%%
+tiledlayout(2,1)
+% Transmittance
+nexttile
+plot(T(:,2),T(:,1));
+xlabel('lambda, um');
+ylabel('T');
+title('Plot 1')
+% Electrical field
+nexttile
+[X, Y] = meshgrid(E.X, E.Y);
+mesh(X', Y', real(E.E(:,:,1,2,2)));
+xlabel('X, um');
+ylabel('Y, um');
+zlabel('Re(Ey)');
+title('Plot 2');
+##### SOURCE END #####
+--></body></html>

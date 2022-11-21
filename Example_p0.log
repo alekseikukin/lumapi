@@ -2,7 +2,7 @@ Ansys Lumerical 2022 R2.3 Variational FDTD Solver Version 7.20.3191 (Windows 64b
  expires (month/day/year): Permanent
 using config file: Ansys Licensing set with ANSYSLMD_LICENSE_FILE
 license host: 1055@132.64.56.90
-current time: Mon Nov 21 10:48:42 2022
+current time: Mon Nov 21 11:30:02 2022
 Running on host: labnum11
 All processes are communicating and ready to proceed to simulation...
 Running lms file: C:\Program Files\Lumerical\v222\bin\varfdtd-engine.exe -t 32 -remote G:/My Drive/matlab_prog/LumericalAPI/Example.lms
@@ -58,7 +58,7 @@ Starting 1352 total iterations
 4% complete. Max time remaining: 1 secs. Auto Shutoff: 1
 8% complete. Max time remaining: 1 secs. Auto Shutoff: 1
 18% complete. Max time remaining: 1 secs. Auto Shutoff: 1
-37% complete. Max time remaining: 0 secs. Auto Shutoff: 1
+37% complete. Max time remaining: 1 secs. Auto Shutoff: 1
 75% complete. Max time remaining: 0 secs. Auto Shutoff: 1
 100% complete. Max time remaining: 0 secs. Auto Shutoff: 1
 Completed 1352 iterations, or 1.33474e-13s of Simulation Time
@@ -70,13 +70,13 @@ Finished collecting data
 
 1352
 
-0.687569
+0.867547
 
-Simulation completed successfully at: Mon Nov 21 10:48:44 2022
-Overall wall time measurements in seconds: 3.30978
-    time to mesh and initialize: 0.0121762
-    time to run FDTD simulation: 0.687569
-    time to finalize data and save to files: 0.0332258
-    miscellaneous time: 2.57678
-    FDTD solver speed on process 0: 3.39785 Mnodes/s
-    total FDTD solver speed on 16 processes: 54.3656 Mnodes/s
+Simulation completed successfully at: Mon Nov 21 11:30:04 2022
+Overall wall time measurements in seconds: 3.75523
+    time to mesh and initialize: 0.011863
+    time to run FDTD simulation: 0.867547
+    time to finalize data and save to files: 0.0376497
+    miscellaneous time: 2.83814
+    FDTD solver speed on process 0: 2.69295 Mnodes/s
+    total FDTD solver speed on 16 processes: 43.0871 Mnodes/s
