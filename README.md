@@ -1,3 +1,5 @@
+[![View Lumerical API toolbox on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/120948-lumerical-api-toolbox)
+
 <br />
 <p align="center">
   <a href="https://github.com/alekseikukin/lumapi">
@@ -6,7 +8,6 @@
   <h1 align="center">Lumerical API toolbox
 </h1>
     <p align="center">
-[![View MatSCAD on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/120948-lumerical-api-toolbox)
 
 Toolbox for simple control of Lumerical software.
   
