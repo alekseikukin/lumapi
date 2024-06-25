@@ -43,8 +43,7 @@ classdef LumericalConnection
             %             show_comand = varargin{2};
             %         otherwise
             %             errore('unknown paramiter')
-            %     end
-            %     varargin(1:2) = [];
+            %     end varargin(1:2) = [];
             % end
 
 
@@ -196,7 +195,8 @@ classdef LumericalConnection
 
         function data1 = GetMEEF(obj, monitor, exp_for_name, result_name)
 %             data1 = 1
-            % get pointed expantion transmittance from pointed mode expansion monitor
+            % get pointed expantion transmittance from pointed mode
+            % expansion monitor
             var_name = [result_name '_temp'];
             getResult(obj, monitor, ['expansion for ' exp_for_name], 'temp_');
             obj.SendComand([var_name ' = ' 'temp_' '.' result_name])
@@ -217,11 +217,12 @@ classdef LumericalConnection
             issweep = isSweep(obj);
         end
         function ilm = IslayoutMode(obj)
-            % This script command can be used to determine whether the simulation file
-            % is currently in LAYOUT mode or in ANALYSIS mode.  It is important to use
-            % this command to check the status of the project file once it is opened to
-            % avoid running into an error during the subsequent operations if the file
-            % is not in the desired mode.
+            % This script command can be used to determine whether the
+            % simulation file is currently in LAYOUT mode or in ANALYSIS
+            % mode.  It is important to use this command to check the
+            % status of the project file once it is opened to avoid running
+            % into an error during the subsequent operations if the file is
+            % not in the desired mode.
             ilm = isLayoutMode(obj);
         end
         function SM = GetUserMatrix(obj)
