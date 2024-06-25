@@ -242,7 +242,7 @@ classdef LumericalConnection
         end
         function LoadFile(obj, filename)
             % load Lumerical file (same as open)
-            obj.SendComand(['load("' filename '");']);
+            obj.SendComand(['load("' replace(filename, '\', '/') '");']);
         end
     end
 end
